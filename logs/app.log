@@ -224,3 +224,49 @@
 [2021-04-15 07:36:20,770] - [telethon.network.mtprotosender] - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
 [2021-04-15 07:36:20,771] - [telethon.network.mtprotosender] - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
 [2021-04-15 07:36:20,772] - [telethon.network.mtprotosender] - INFO - Not disconnecting (already have no connection)
+[2021-04-15 15:45:57,104] - [telethon.network.mtprotosender] - INFO - Connecting to 149.154.167.91:443/TcpFull...
+[2021-04-15 15:45:57,112] - [ Tracker ] - INFO - Setting up Apps ...
+[2021-04-15 15:45:57,114] - [ Tracker ] - INFO - Followings tracker is ready!
+[2021-04-15 15:45:57,139] - [ Tracker ] - INFO - Got 1 users from database
+[2021-04-15 15:45:57,139] - [ Tracker ] - INFO - Target user : rehmanali944228
+[2021-04-15 15:45:57,139] - [ Tracker ] - INFO - rehmanali944228 is already tracked!
+[2021-04-15 15:45:57,139] - [ Tracker ] - INFO - Checking for new followings for rehmanali944228
+[2021-04-15 15:45:57,139] - [ Tracker ] - INFO - Latest cursor is : -1
+[2021-04-15 15:45:57,509] - [telethon.network.mtprotosender] - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+[2021-04-15 15:45:57,900] - [telethon.network.connection.connection] - INFO - The server closed the connection
+[2021-04-15 15:45:57,901] - [telethon.network.mtprotosender] - INFO - Connection closed while receiving data
+[2021-04-15 15:45:57,901] - [telethon.network.mtprotosender] - INFO - Closing current connection to begin reconnect...
+[2021-04-15 15:45:57,901] - [telethon.network.mtprotosender] - INFO - Connecting to 149.154.167.91:443/TcpFull...
+[2021-04-15 15:45:58,329] - [telethon.network.mtprotosender] - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+[2021-04-15 15:45:59,310] - [ Tracker ] - INFO - Got 0 new followings for rehmanali944228
+[2021-04-15 15:46:00,094] - [root] - INFO - Setting up event handlers .. 
+[2021-04-15 15:46:00,095] - [root] - INFO - Bot is ready!
+[2021-04-15 15:46:00,097] - [root] - INFO - Queue handler is ready!
+[2021-04-15 15:46:13,445] - [telethon.client.updates] - ERROR - Unhandled exception on list_user
+Traceback (most recent call last):
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/telethon/client/updates.py", line 446, in _dispatch_update
+    await callback(event)
+  File "/home/virchual/twitterBots/followings_tracker/tg/event_handlers.py", line 51, in list_user
+    await event.repond(message)
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/telethon/events/newmessage.py", line 221, in __getattr__
+    return getattr(self.message, item)
+AttributeError: 'Message' object has no attribute 'repond'
+[2021-04-15 15:46:18,258] - [telethon.network.mtprotosender] - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+[2021-04-15 15:46:18,260] - [telethon.network.mtprotosender] - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+[2021-04-15 15:46:18,261] - [telethon.network.mtprotosender] - INFO - Not disconnecting (already have no connection)
+[2021-04-15 15:46:26,672] - [telethon.network.mtprotosender] - INFO - Connecting to 149.154.167.91:443/TcpFull...
+[2021-04-15 15:46:26,680] - [ Tracker ] - INFO - Setting up Apps ...
+[2021-04-15 15:46:26,681] - [ Tracker ] - INFO - Followings tracker is ready!
+[2021-04-15 15:46:26,685] - [ Tracker ] - INFO - Got 1 users from database
+[2021-04-15 15:46:26,686] - [ Tracker ] - INFO - Target user : rehmanali944228
+[2021-04-15 15:46:26,686] - [ Tracker ] - INFO - rehmanali944228 is already tracked!
+[2021-04-15 15:46:26,686] - [ Tracker ] - INFO - Checking for new followings for rehmanali944228
+[2021-04-15 15:46:26,686] - [ Tracker ] - INFO - Latest cursor is : -1
+[2021-04-15 15:46:27,081] - [telethon.network.mtprotosender] - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+[2021-04-15 15:46:28,841] - [ Tracker ] - INFO - Got 0 new followings for rehmanali944228
+[2021-04-15 15:46:28,893] - [root] - INFO - Queue handler is ready!
+[2021-04-15 15:46:28,899] - [root] - INFO - Setting up event handlers .. 
+[2021-04-15 15:46:28,901] - [root] - INFO - Bot is ready!
+[2021-04-15 15:46:39,630] - [telethon.network.mtprotosender] - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+[2021-04-15 15:46:39,632] - [telethon.network.mtprotosender] - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+[2021-04-15 15:46:39,633] - [telethon.network.mtprotosender] - INFO - Not disconnecting (already have no connection)

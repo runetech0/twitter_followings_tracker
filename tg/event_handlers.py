@@ -44,7 +44,11 @@ class EventHandlers:
 
     async def list_user(self, event):
         await event.delete()
-        print('Listing user')
+        usernames = self.db.get_all_usernames()
+        message = 'List of Users\n'
+        for username in usernames:
+            message = f'{message}\n{username}'
+        await event.respond(message)
 
     async def remove_user(self, event):
         await event.delete()
