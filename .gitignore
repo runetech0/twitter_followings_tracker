@@ -1,0 +1,6 @@
+*.zip
+twitter_config.json
+telegram_config.json
+__py*
+*.session
+tests.py
