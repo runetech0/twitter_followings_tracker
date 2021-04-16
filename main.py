@@ -41,14 +41,15 @@ mp.Process(target=tracker.start).start()
 
 async def setup_event_handlers():
     logger.info('Setting up event handlers .. ')
+    admin = config.get("ADMIN_USERNAME")
     bot.add_event_handler(event_handlers.add_user,
-                          events.NewMessage(pattern=ADD_USER_BTN))
+                          events.NewMessage(pattern=ADD_USER_BTN, chats=[admin]))
     bot.add_event_handler(
-        event_handlers.remove_user, events.NewMessage(pattern=REMOVE_USER_BTN))
+        event_handlers.remove_user, events.NewMessage(pattern=REMOVE_USER_BTN, chats=[admin]))
     bot.add_event_handler(event_handlers.list_user,
-                          events.NewMessage(pattern=LIST_USER_BTN))
+                          events.NewMessage(pattern=LIST_USER_BTN, chats=[admin]))
     bot.add_event_handler(event_handlers.start,
-                          events.NewMessage(pattern='/start'))
+                          events.NewMessage(pattern='/start', chats=[admin]))
 
 
 async def wait_until_ready():

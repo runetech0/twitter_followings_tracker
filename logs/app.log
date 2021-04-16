@@ -270,3 +270,51 @@ AttributeError: 'Message' object has no attribute 'repond'
 [2021-04-15 15:46:39,630] - [telethon.network.mtprotosender] - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
 [2021-04-15 15:46:39,632] - [telethon.network.mtprotosender] - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
 [2021-04-15 15:46:39,633] - [telethon.network.mtprotosender] - INFO - Not disconnecting (already have no connection)
+[2021-04-16 18:13:33,834] - [telethon.network.mtprotosender] - INFO - Connecting to 149.154.167.91:443/TcpFull...
+[2021-04-16 18:13:33,839] - [ Tracker ] - INFO - Setting up Apps ...
+[2021-04-16 18:13:33,842] - [ Tracker ] - INFO - Followings tracker is ready!
+[2021-04-16 18:13:34,151] - [telethon.network.mtprotosender] - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+[2021-04-16 18:13:35,303] - [root] - INFO - Setting up event handlers .. 
+[2021-04-16 18:13:35,306] - [root] - INFO - Bot is ready!
+[2021-04-16 18:13:35,309] - [root] - INFO - Queue handler is ready!
+[2021-04-16 18:14:00,377] - [telethon.network.mtprotosender] - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+[2021-04-16 18:14:00,382] - [telethon.network.mtprotosender] - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+[2021-04-16 18:14:00,383] - [telethon.network.mtprotosender] - INFO - Not disconnecting (already have no connection)
+[2021-04-16 18:14:00,570] - [asyncio] - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<UpdateMethods._dispatch_update() done, defined at /home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/telethon/client/updates.py:383> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/telethon/client/updates.py", line 68, in run_until_disconnected
+    return self.loop.run_until_complete(self._run_until_disconnected())
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/asyncio/base_events.py", line 603, in run_until_complete
+    self.run_forever()
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/asyncio/base_events.py", line 570, in run_forever
+    self._run_once()
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/asyncio/base_events.py", line 1859, in _run_once
+    handle._run()
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/telethon/client/updates.py", line 446, in _dispatch_update
+    await callback(event)
+  File "/home/virchual/twitterBots/followings_tracker/tg/event_handlers.py", line 47, in list_user
+    usernames = self.db.get_all_usernames()
+  File "/home/virchual/twitterBots/followings_tracker/exts/db.py", line 17, in get_all_usernames
+    return [user["username"] for user in users]
+  File "/home/virchual/twitterBots/followings_tracker/exts/db.py", line 17, in <listcomp>
+    return [user["username"] for user in users]
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/cursor.py", line 1207, in next
+    if len(self.__data) or self._refresh():
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/cursor.py", line 1100, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1816, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1766, in __start_session
+    server_session = self._get_server_session()
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/mongo_client.py", line 1802, in _get_server_session
+    return self._topology.get_server_session()
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/topology.py", line 485, in get_server_session
+    self._select_servers_loop(
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/site-packages/pymongo/topology.py", line 226, in _select_servers_loop
+    self._condition.wait(common.MIN_HEARTBEAT_INTERVAL)
+  File "/home/virchual/anaconda3/envs/telethon/lib/python3.8/threading.py", line 306, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
