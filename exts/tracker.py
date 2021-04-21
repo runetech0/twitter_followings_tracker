@@ -68,6 +68,7 @@ class Tracker:
         try:
             results = api.friends(user["username"],
                                   cursor=cur, count=self.count)
+            await asyncio.sleep(1)
         except tweepy.error.RateLimitError:
             self.log('Hit rate limit on API, switching to next App.')
             await asyncio.sleep(3)
@@ -115,6 +116,7 @@ class Tracker:
             try:
                 results = api.friends(username,
                                       cursor=cur, count=self.count)
+                await asyncio.sleep(1)
             except tweepy.error.RateLimitError:
                 self.log('Hit rate limit on API, switching to next App.')
                 await asyncio.sleep(3)
