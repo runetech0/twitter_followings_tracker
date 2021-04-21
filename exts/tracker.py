@@ -93,7 +93,6 @@ class Tracker:
         self.log(
             f'Got {len(new_followings)} new followings for {user["username"]}')
         if len(new_followings) != 0:
-            self.log(f'Adding new followings to db.')
             self.db.extend_users_followings_list(
                 user["user_id"], new_followings)
         return new_followings
@@ -108,7 +107,6 @@ class Tracker:
             yield self.authenticated_apps[index]
 
     async def track_user(self, user):
-        self.log(f'Starting to track {user["username"]}')
         username = user["username"]
         cur = -1
         followings_list = list()
@@ -148,7 +146,6 @@ class Tracker:
             ACCESS_TOKEN_SECRET = cred.get("APP_ACCESS_TOKEN_SECRET")
             auth = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
             auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-            api = tweepy.API(auth, wait_on_rate_limit=True,
-                             wait_on_rate_limit_notify=True)
+            api = tweepy.API(auth)
             self.authenticated_apps.append(api)
         self.random_api = self.get_random_api()
