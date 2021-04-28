@@ -25,17 +25,12 @@ class Tracker:
         while True:
             all_users = self.db.get_all_users()
             if len(all_users) == 0:
-                self.log("No users in the database!")
                 await asyncio.sleep(10)
                 continue
-            self.log(f'Got {len(all_users)} users from database')
             for user in all_users:
-                self.log(f'Target user : {user["username"]}')
                 if not user['tracked']:
-                    self.log(f'{user["username"]} is not tracked yet!')
                     await self.track_user(user)
                     continue
-                self.log(f'{user["username"]} is already tracked!')
                 new_followings = await self.check_for_new_followings(user)
                 for user_id in new_followings:
                     message = await self.create_message_for_tg(user_id, user["username"])
@@ -61,20 +56,19 @@ class Tracker:
         return message
 
     async def check_for_new_followings(self, user):
-        self.log(f'Checking for new followings for {user["username"]}')
         cur = user["cursor"]
-        self.log(f'Latest cursor is : {cur}')
         api = next(self.random_api)
         try:
             results = api.friends(user["username"],
                                   cursor=cur, count=self.count)
             await asyncio.sleep(1)
         except tweepy.error.RateLimitError:
-            self.log('Hit rate limit on API, switching to next App.')
+            self.log('Hit rate limit on API, switching to next App.',
+                     exc_info=True)
             await asyncio.sleep(3)
             return await self.check_for_new_followings(user)
         except tweepy.error.TweepError:
-            self.log('Tweepy Error in check for new followings')
+            self.log('Tweepy Error in check for new followings', exc_info=True)
             await asyncio.sleep(60)
             return await self.check_for_new_followings(user)
         friends = results[0]
@@ -118,12 +112,13 @@ class Tracker:
                                       cursor=cur, count=self.count)
                 await asyncio.sleep(1)
             except tweepy.error.RateLimitError:
-                self.log('Hit rate limit on API, switching to next App.')
+                self.log(
+                    'Hit rate limit on API, switching to next App.', exc_info=True)
                 await asyncio.sleep(3)
                 api = next(self.random_api)
                 continue
             except tweepy.error.TweepError:
-                self.log('Tweepy error in track_user')
+                self.log('Tweepy error in track_user', exc_info=True)
                 await asyncio.sleep(60)
                 continue
             friends = results[0]
@@ -132,8 +127,6 @@ class Tracker:
             if results[1][1] == 0:
                 break
             cur = results[1][1]
-        self.log(
-            f'Got {len(followings_list)} total following for {user["username"]}')
         self.db.update_cursor(user["user_id"], cur)
         self.db.extend_users_followings_list(user["user_id"], followings_list)
         self.db.set_user_tracked(user["user_id"])
