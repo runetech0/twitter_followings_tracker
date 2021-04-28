@@ -52,7 +52,6 @@ class Tracker:
         profile_url = f'https://twitter.com/{username}'
         follower_profile_url = f'https://twitter.com/{follower_username}'
         message = f'[{follower_username}]({follower_profile_url}) just started to follow [{username}]({profile_url}).'
-        self.log(f'Prepared message for TG : {message}')
         return message
 
     async def check_for_new_followings(self, user):
@@ -85,8 +84,6 @@ class Tracker:
             new_cur = results[1][1]
             self.db.update_cursor(user["user_id"], new_cur)
         new_followings = list(filter(filter_followings, followings_list))
-        self.log(
-            f'Got {len(new_followings)} new followings for {user["username"]}')
         if len(new_followings) != 0:
             self.db.extend_users_followings_list(
                 user["user_id"], new_followings)
