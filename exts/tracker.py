@@ -62,12 +62,11 @@ class Tracker:
                                   cursor=cur, count=self.count)
             await asyncio.sleep(1)
         except tweepy.error.RateLimitError:
-            self.log('Hit rate limit on API, switching to next App.',
-                     exc_info=True)
+            self.log('Hit rate limit on API, switching to next App.')
             await asyncio.sleep(300)
             return await self.check_for_new_followings(user)
         except tweepy.error.TweepError:
-            self.log('Tweepy Error in check for new followings', exc_info=True)
+            self.log('Tweepy Error in check for new followings')
             await asyncio.sleep(300)
             return await self.check_for_new_followings(user)
         friends = results[0]
