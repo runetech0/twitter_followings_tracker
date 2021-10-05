@@ -39,11 +39,11 @@ class Tracker:
 
     def get_wait_time(self, number_of_users):
         if number_of_users <= 5:
-            return 240
+            return 300
         elif number_of_users > 5 and number_of_users <= 10:
-            return 180
+            return 200
         elif number_of_users > 10:
-            return 120
+            return 100
 
     async def create_message_for_tg(self, following_id, follower_username):
         api = next(self.random_api)
